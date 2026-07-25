@@ -12,10 +12,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final SelenideElement cookieButton = element("#onetrust-accept-btn-handler");
-    private final ElementsCollection newPage =  elements(".nav-bar-category-link");
+    private final SelenideElement cookieButton = element("#title-Close-dialog");
+    private final SelenideElement search = element("#search");
 
-@Step("Clicking the cookie button if it is visible")
+    @Step("Clicking the cookie button if it is visible")
     public MainPage clickCookieButton() {
         if (cookieButton.is(visible, Duration.ofSeconds(5))) {
             cookieButton.click();
@@ -23,9 +23,9 @@ public class MainPage {
         return this;
     }
 
-@Step("Opening the new page")
-    public ElementsCollection openNewPage() {
-        newPage.findBy(text("New")).click();
-        return newPage;
+    @Step("Search item {0}")
+    public MainPage searchItem(String value) {
+        search.setValue(value).pressEnter();
+        return this;
     }
 }

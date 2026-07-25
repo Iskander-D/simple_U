@@ -22,7 +22,7 @@ public interface WebConfig extends Config {
     String getBrowserSize();
 
     @Key("baseUrl")
-    @DefaultValue("https://www.hollisterco.com/shop/wd/")
+    @DefaultValue("https://speedextools.com/")
     String getBaseUrl();
 
     @Key("isRemote")

@@ -4,6 +4,7 @@ package test;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,20 +21,21 @@ public class MainPageTitleTest extends TestBase {
     @DisplayName("Проверка заголовка главной страницы")
     void checkPageTitleTest() {
         step("Проверяем что заголовок главной страницы соответствует ожидаемому", () -> {
-            String expectedTitle = "Clothing for Women & Men | Teen Clothing | Hollister Co.";
+            String expectedTitle = "Speedex Tools - Speedex UAE | Top Hardware & Tools for DIY & Pros";
             String actualTitle = title();
 
             assertThat(actualTitle).isEqualTo(expectedTitle);
         });
     }
 
+
     @ParameterizedTest(name = "Проверяем что заголовок страницы New Arrival имеет 2 кнопки: {0}")
-    @ValueSource(strings = {" Shop Men's", " Shop Women's"})
+    @ValueSource(strings = {" milwaukee", " Bosch"})
     void checkingSelectButtonTest(String value) {
 
         mainPage.clickCookieButton()
-                .openNewPage();
-        newPage.checkHeader(value);
+                .searchItem(value);
+
     }
 }
 

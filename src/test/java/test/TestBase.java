@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import pages.MainPage;
-import pages.NewPage;
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -20,7 +19,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
 
     MainPage mainPage = new MainPage();
-    NewPage newPage = new NewPage();
+
 
     private static final WebConfig config = ConfigReader.Instance.read();
 
@@ -28,6 +27,8 @@ public class TestBase {
     public static void beforeAll() {
         WebConfigForProject webConfigForProject = new WebConfigForProject(config);
         webConfigForProject.webConfig();
+
+
     }
 
     @BeforeEach
